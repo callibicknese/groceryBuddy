@@ -15,7 +15,7 @@ public class DeleteItemDialogFragment extends DialogFragment {
             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick ( DialogInterface dia , int id ) {
                 //Remove the item from the database
-
+                //TODO - connect the delete item dialog to the database
             }
         })
                 .setNegativeButton ("No" , new DialogInterface . OnClickListener () {
