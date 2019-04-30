@@ -1,7 +1,7 @@
 package com.example.grocerybuddy;
 
 import android.content.DialogInterface;
-import android.support.v4.app.DialogFragment;
+import androidx.core.app.DialogFragment;
 import android.app.Dialog;
 import android.app.AlertDialog;
 import android.os.Bundle;
