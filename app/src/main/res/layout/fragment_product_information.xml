@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductInformation">
+    tools:context=".AppInformation">
 
     <TextView
         android:id="@+id/title"
@@ -29,7 +29,6 @@
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        
         android:layout_below="@+id/icon_image"/>
 
     <LinearLayout
