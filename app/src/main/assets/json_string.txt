@@ -1,0 +1,38 @@
+{
+   "pageInfo": {
+         "pageName": "JSON Parsing for Dummies",
+         "pagePic": "http://example.com/content.jpg"
+    },
+    "posts": [
+         {
+              "post_id": "7386416",
+              "actor_id": "00000001",
+              "picOfPersonWhoPosted": "http://gcmuganda.faculty.noctrl.edu/images/gcmuganda.jpg",
+              "nameOfPersonWhoPosted": "Dr. Godfrey C. Muganda",
+              "message": "Good job. Works great.",
+              "likesCount": "100",
+              "comments": [],
+              "timeOfPost": "1557221728 "
+         },
+         {
+              "post_id": "7386487",
+              "actor_id": "00000002",
+              "picOfPersonWhoPosted": "http://example.com/Me.jpg",
+              "nameOfPersonWhoPosted": "Kevin Zahrobsky",
+              "message": "That's just how math works.",
+              "likesCount": "2",
+              "comments": [],
+              "timeOfPost": "1557221720"
+         },
+         {
+              "post_id": "7387184",
+              "actor_id": "00000003",
+              "picOfPersonWhoPosted": "http://example.com/JaneDoe.jpg",
+              "nameOfPersonWhoPosted": "Jane Doe",
+              "message": "Sounds cool. Can't wait to see it!",
+              "likesCount": "15",
+              "comments": [],
+              "timeOfPost": "1557221704"
+         }
+    ]
+}
