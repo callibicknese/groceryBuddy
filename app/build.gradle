@@ -36,4 +36,10 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
     implementation 'androidx.fragment:fragment:1.0.0'
 
+    def nav_version = "2.0.0"
+
+    // Java
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
 }

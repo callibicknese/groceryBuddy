@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/pantryFragment"
+        android:name="com.example.grocerybuddy.PantryFragment"
+        android:label="fragment_pantry"
+        tools:layout="@layout/fragment_pantry" >
+        <action
+            android:id="@+id/action_pantryFragment_to_productInformation"
+            app:destination="@id/productInformation"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/productInformation"
+        android:name="com.example.grocerybuddy.ProductInformation"
+        android:label="fragment_product_information"
+        tools:layout="@layout/fragment_product_information" />
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.example.grocerybuddy.IntroFragment"
+        android:label="fragment_intro"
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/action_introFragment_to_pantryFragment"
+            app:destination="@id/pantryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+</navigation>

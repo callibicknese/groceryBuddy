@@ -18,7 +18,7 @@
         android:id="@+id/icon_image"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/GroceryBuddyIcon"
+        android:src="@drawable/grocerybuddyicon"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_below="@+id/title"/>

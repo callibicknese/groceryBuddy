@@ -1,18 +1,24 @@
 package com.example.grocerybuddy;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.room.Room;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, PantryFragment.OnFragmentInteractionListener {
 
     GBDatabase db;
-    Button jsonBtn;
+    Button jsonBtn, panButt;
     EditText jsonView;
     JSONParser jsonParser;
 
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 jsonParser.parse(jsonView.getText().toString());
             }
         });
+
     }
 
     // Creates the Database.
@@ -38,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         db = Room.databaseBuilder(getApplicationContext(),
                 GBDatabase.class, "Product Database").build();
     }
+
 
     @Override
     protected void onResume() {
@@ -62,5 +70,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }

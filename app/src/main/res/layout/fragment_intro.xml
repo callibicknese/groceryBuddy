@@ -8,17 +8,34 @@
 
     <ImageView
         android:id="@+id/intro_fragment_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/grocery_buddy_icon"/>
+        android:layout_width="162dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="@string/appicon"
+        android:layoutDirection="inherit"
+        android:src="@drawable/grocery_buddy_icon" />
 
-    <TextView
-        android:id="@+id/intro_fragment_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+    <Button
+        android:id="@+id/pantry_button"
+        android:layout_width="126dp"
+        android:layout_height="83dp"
         android:layout_below="@+id/intro_fragment_icon"
-        android:text="Enter Pantry"/>
+        android:layout_alignBottom="@id/intro_fragment_icon"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="286dp"
+        android:text="@string/pantry_button"
+        tools:text="Pantry" />
+
 </RelativeLayout>
