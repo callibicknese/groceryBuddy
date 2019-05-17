@@ -31,12 +31,13 @@ dependencies {
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
     // For Kotlin use kapt instead of annotationProcessor
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
     implementation 'androidx.fragment:fragment:1.0.0'
 
-    def nav_version = "2.0.0"
+    def nav_version = "2.1.0-alpha04"
 
     // Java
     implementation "androidx.navigation:navigation-fragment:$nav_version"

@@ -17,11 +17,9 @@ import androidx.navigation.Navigation;
 
 public class IntroFragment extends Fragment {
 
-
     public IntroFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,8 +43,5 @@ public class IntroFragment extends Fragment {
                 navController.navigate(R.id.action_introFragment_to_pantryFragment);
             }
         });
-
-
     }
-
 }
