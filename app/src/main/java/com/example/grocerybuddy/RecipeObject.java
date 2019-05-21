@@ -13,7 +13,7 @@ public class RecipeObject {
 
     }
 
-    LinkedList<String> steps
+    LinkedList<String> steps;
     LinkedList<FoodObject> ingredientList;
     String RecipeName;
     LinkedList<String> imageNames;
