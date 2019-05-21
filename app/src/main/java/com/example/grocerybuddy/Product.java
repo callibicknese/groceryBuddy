@@ -4,8 +4,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-// reference https://developer.android.com/training/data-storage/room/index.html#java
 
+
+// reference https://developer.android.com/training/data-storage/room/index.html#java
 @Entity
 public class Product {
 
@@ -23,4 +24,6 @@ public class Product {
 
     @ColumnInfo(name ="expiration_date")
     public String pExDate;
+
 }
+

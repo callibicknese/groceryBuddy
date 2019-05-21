@@ -32,7 +32,7 @@ public class IntroFragment extends Fragment {
         return view;
     }
 
-
+    //Author - Calli Bicknese
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -45,7 +45,6 @@ public class IntroFragment extends Fragment {
                 navController.navigate(R.id.action_introFragment_to_pantryFragment);
             }
         });
-
 
     }
 

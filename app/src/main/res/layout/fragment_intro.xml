@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#134017"
     tools:context=".IntroFragment">
 
     <ImageView
@@ -29,12 +29,11 @@
         android:layout_below="@+id/intro_fragment_icon"
         android:layout_alignBottom="@id/intro_fragment_icon"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="false"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="286dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="285dp"
         android:text="@string/pantry_button"
         tools:text="Pantry" />
 

@@ -7,4 +7,6 @@
     <string name="enter_pantry">Enter Pantry</string>
     <string name="pantry_button">Pantry</string>
     <string name="appicon">appIcon</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="my_pantry">My Pantry</string>
 </resources>

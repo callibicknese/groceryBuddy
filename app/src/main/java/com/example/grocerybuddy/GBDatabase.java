@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase;
 
 //reference https://developer.android.com/training/data-storage/room/index.html#java
 
-@Database(entities = {Product.class}, version = 1)
+@Database(entities = {Product.class}, version = 1, exportSchema = false)
 public abstract class GBDatabase extends RoomDatabase {
     public abstract ProductDao productDao();
 }
