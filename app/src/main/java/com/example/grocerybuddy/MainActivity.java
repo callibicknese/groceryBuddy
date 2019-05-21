@@ -26,18 +26,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        jsonParser = new JSONParser(this);
-        jsonView = findViewById(R.id.jsonView);
-
-        jsonBtn = findViewById(R.id.parserButton);
-        jsonBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jsonParser.parse(jsonView.getText().toString());
-            }
-        });
-
     }
 
     // Creates the Database.
@@ -45,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         db = Room.databaseBuilder(getApplicationContext(),
                 GBDatabase.class, "Product Database").build();
     }
-
 
     @Override
     protected void onResume() {
