@@ -8,11 +8,15 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 
 public class PantryFragment extends Fragment {
@@ -24,6 +28,8 @@ public class PantryFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private ArrayList<Product> products;
 
     public PantryFragment() {
         // Required empty public constructor
@@ -41,17 +47,24 @@ public class PantryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pantry, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pantry, container, false);
+
+        RecyclerView pantryRecyclerView = rootView.findViewById(R.id.pantryRecyclerView);
+
+        products = Product.createPantryList();
+
+        PantryProductsAdapter pantryProductsAdapter = new PantryProductsAdapter(products);
+
+        pantryRecyclerView.setAdapter(pantryProductsAdapter);
+        pantryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
