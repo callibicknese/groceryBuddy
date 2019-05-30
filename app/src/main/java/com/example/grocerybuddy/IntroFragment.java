@@ -33,6 +33,7 @@ public class IntroFragment extends Fragment {
     }
 
     //Author - Calli Bicknese
+    //creates functionality for the buttons on the intro fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -43,6 +44,15 @@ public class IntroFragment extends Fragment {
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
                 navController.navigate(R.id.action_introFragment_to_pantryFragment);
+            }
+        });
+
+        Button button1 = view.findViewById(R.id.shop_list_button);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.navigate(R.id.action_introFragment_to_shoppingList);
             }
         });
 

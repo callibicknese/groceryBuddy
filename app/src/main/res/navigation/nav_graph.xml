@@ -31,5 +31,13 @@
             app:destination="@+id/pantryFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_introFragment_to_shoppingList"
+            app:destination="@id/shoppingList" />
     </fragment>
+    <fragment
+        android:id="@+id/shoppingList"
+        android:name="com.example.grocerybuddy.ShoppingList"
+        android:label="fragment_shopping_list"
+        tools:layout="@layout/fragment_shopping_list" />
 </navigation>

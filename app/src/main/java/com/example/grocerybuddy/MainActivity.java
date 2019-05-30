@@ -15,7 +15,7 @@ import androidx.room.Room;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, PantryFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, PantryFragment.OnFragmentInteractionListener, ShoppingList.OnFragmentInteractionListener {
 
     GBDatabase db;
     Button jsonBtn, panButt;
