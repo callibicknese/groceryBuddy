@@ -9,4 +9,5 @@
     <string name="appicon">appIcon</string>
     <string name="shopping_list">Shopping List</string>
     <string name="my_pantry">My Pantry</string>
+    <string name="stringAddProduct">Add Product</string>
 </resources>
