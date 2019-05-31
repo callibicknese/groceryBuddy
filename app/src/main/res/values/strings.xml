@@ -10,4 +10,6 @@
     <string name="shopping_list">Shopping List</string>
     <string name="my_pantry">My Pantry</string>
     <string name="stringAddProduct">Add Product</string>
+    <string name="snack_bar_text">item removed</string>
+    <string name="snack_bar_undo">undo</string>
 </resources>

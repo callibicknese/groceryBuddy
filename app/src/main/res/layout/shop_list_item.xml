@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="102dp">
 
-
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/shopListImage"
         android:layout_width="0dp"
-        android:layout_height="102dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/picture_frame" />
 
     <TextView
         android:id="@+id/product_name"

@@ -1,9 +1,11 @@
 package com.example.grocerybuddy;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,11 +23,13 @@ public class PantryProductsAdapter  extends RecyclerView.Adapter<PantryProductsA
      */
     public class PantryViewHolder extends RecyclerView.ViewHolder{
         public TextView nameTV;
+        public ImageView productIV;
 
         public PantryViewHolder(View productView){
             super(productView);
 
             nameTV = productView.findViewById(R.id.product_name);
+            productIV = productView.findViewById(R.id.imageView2);
         }
     }
 
@@ -56,7 +60,12 @@ public class PantryProductsAdapter  extends RecyclerView.Adapter<PantryProductsA
         Product product = products.get(mposition);
 
         TextView nameTV = pantryViewHolder.nameTV;
-        nameTV.setText(product.getPname());
+        nameTV.setText(product.pname);
+
+        //trying to get the image to load from the BitMap field inside of Product object
+        ImageView productIV = pantryViewHolder.productIV;
+        Log.w(productIV.toString(), "HERE");
+        productIV.setImageBitmap(product.pImage);
     }
 
     //this method returns the size of the productsList
