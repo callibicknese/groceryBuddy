@@ -1,8 +1,6 @@
 package com.example.grocerybuddy;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -45,12 +43,13 @@ public class Product {
             creates the PantryList for the pantry recyclerList
             eventually will populate from database information
          */
-    public static ArrayList<Product> createPantryList(){
+    public static ArrayList<Product> createPantryList() {
+
         ArrayList<Product> products = new ArrayList<>();
 
         Product p1 = new Product();
         p1.pname = "Lettuce";
-       // p1.pImage =
+        // p1.pImage =
         Product p2 = new Product();
         p2.pname = "Tomato";
         Product p3 = new Product();
@@ -74,6 +73,7 @@ public class Product {
         products.add(p6);
         products.add(p7);
         products.add(p8);
+
         return products;
     }
 

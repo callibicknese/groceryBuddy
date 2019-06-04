@@ -1,13 +1,13 @@
 package com.example.grocerybuddy;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
-
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,31 +15,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
 public class PantryFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     private OnFragmentInteractionListener mListener;
-
     private ArrayList<Product> products;
 
     public PantryFragment() {
         // Required empty public constructor
     }
 
-    public static PantryFragment newInstance(String param1, String param2) {
+    public static PantryFragment newInstance() {
         PantryFragment fragment = new PantryFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,26 +48,66 @@ public class PantryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_pantry, container, false);
 
+        // Inflate the layout for this fragment
+        final View rootView = inflater.inflate(R.layout.fragment_pantry, container, false);
         RecyclerView pantryRecyclerView = rootView.findViewById(R.id.pantryRecyclerView);
 
+        /**
+         * Author: Kevin Z
+         *
+         * This is the code for the user manually entering a product.
+         * The content of the AlertDialog is the LinearLayout add_product.xml
+         */
+        Button addProductBtn = rootView.findViewById(R.id.button_add_product);
+        addProductBtn.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick (View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                builder.setTitle("Manually add a product");
+                builder.setMessage("Please enter product information below:");
+                builder.setView(R.layout.add_product);
+                builder.setNegativeButton("Cancel", null);
+                builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dInterface, int which) {
+                        Dialog dialog = Dialog.class.cast(dInterface);
+
+
+                        EditText itemName = (EditText) dialog.findViewById(R.id.product_name);
+                        EditText itemDesc = (EditText) dialog.findViewById(R.id.product_desc);
+                        EditText expirDate = (EditText) dialog.findViewById(R.id.product_expir_date);
+                        EditText buyDate = (EditText) dialog.findViewById(R.id.product_buy_date);
+
+                        Product newProduct = new Product();
+                        newProduct.pname = itemName.getText().toString();
+                        newProduct.pdesc = itemDesc.getText().toString();
+                        newProduct.pBuyDate = buyDate.getText().toString();
+                        newProduct.pExDate = expirDate.getText().toString();
+                        products.add(newProduct);
+
+                        Toast toast = Toast.makeText(getContext(), "Added product",
+                                Toast.LENGTH_SHORT);
+                        //toast.setMargin(50,50);
+                        toast.show();
+
+                        dInterface.dismiss();
+                    }
+                });
+
+                builder.create();
+                builder.show();
+            }
+        });
+
         products = Product.createPantryList();
-
         PantryProductsAdapter pantryProductsAdapter = new PantryProductsAdapter(products);
-
         pantryRecyclerView.setAdapter(pantryProductsAdapter);
         pantryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return rootView;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
