@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         android:textSize="30dp"
-        android:text="Insert Product Name" />
+        android:text="Product Name" />
 
     <ImageView
         android:id="@+id/product_image"
@@ -22,27 +22,29 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_below="@+id/product_name"
-        android:background="@color/colorAccent" />
+        android:background="@drawable/grocerybuddyicon" />
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="294dp"
+        android:layout_height="76dp"
+        android:layout_below="@+id/product_image"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="57dp"
         android:background="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_below="@+id/product_image">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Description: "/>
+            android:text="Description: This is the Description " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Expiration Date: "/>
+            android:text="Expiration Date: Probably Already Expired " />
 
     </LinearLayout>
 
