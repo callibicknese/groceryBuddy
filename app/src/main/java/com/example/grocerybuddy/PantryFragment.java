@@ -7,7 +7,10 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
+
 import androidx.fragment.app.Fragment;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,12 +21,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class PantryFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private ArrayList<Product> products;
+    private List<Product> products;
+    public GBDatabase pDb;
 
     public PantryFragment() {
         // Required empty public constructor
@@ -41,8 +45,8 @@ public class PantryFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    /*
-        Author: calli bicknese
+    /**
+        Author: Calli Bicknese
         This inflates the recycler view for the pantry fragment
      */
     @Override
@@ -86,7 +90,9 @@ public class PantryFragment extends Fragment {
                         newProduct.pdesc = itemDesc.getText().toString();
                         newProduct.pBuyDate = buyDate.getText().toString();
                         newProduct.pExDate = expirDate.getText().toString();
-                        products.add(newProduct);
+                        // Calli Bicknese - inserts product into database
+                        //pDb.productDao().insertProduct(newProduct);
+                        Product.updatePantryList(newProduct);
 
                         Toast toast = Toast.makeText(getContext(), "Added product",
                                 Toast.LENGTH_SHORT);
@@ -102,10 +108,17 @@ public class PantryFragment extends Fragment {
             }
         });
 
-        products = Product.createPantryList();
+
+
+        products = Product.getPantryList();
+
         PantryProductsAdapter pantryProductsAdapter = new PantryProductsAdapter(products);
         pantryRecyclerView.setAdapter(pantryProductsAdapter);
         pantryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //This allows for the swipe to delete functionality4
+        ItemTouchHelper itHelper = new ItemTouchHelper(new SwipeToDeleteCallback_pantry(pantryProductsAdapter));
+        itHelper.attachToRecyclerView(pantryRecyclerView);
 
         return rootView;
     }

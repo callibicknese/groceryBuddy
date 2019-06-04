@@ -8,11 +8,14 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 // reference https://developer.android.com/training/data-storage/room/index.html#java
 @Entity
 public class Product {
+    @Ignore
+    public static List<Product> products, shoppingList;
 
     @PrimaryKey
     public int pid;
@@ -35,78 +38,50 @@ public class Product {
         return pname;
     }
 
+    @Ignore
+    public static List<Product> getPantryList(){
+        return products;
+    }
+    @Ignore
+    public static List<Product> getShoppingList(){
+        return shoppingList;
+    }
+
     //stores the bitmap image for the product
     @Ignore
     public Bitmap pImage;
 
-    /*Author: Calli Bicknese
-            creates the PantryList for the pantry recyclerList
-            eventually will populate from database information
-         */
-    public static ArrayList<Product> createPantryList() {
-
-        ArrayList<Product> products = new ArrayList<>();
-
-        Product p1 = new Product();
-        p1.pname = "Lettuce";
-        // p1.pImage =
-        Product p2 = new Product();
-        p2.pname = "Tomato";
-        Product p3 = new Product();
-        p3.pname = "Potato";
-        Product p4 = new Product();
-        p4.pname = "Milk";
-        Product p5 = new Product();
-        p5.pname = "Juice";
-        Product p6 = new Product();
-        p6.pname = "Eggs";
-        Product p7 = new Product();
-        p7.pname = "Flour";
-        Product p8 = new Product();
-        p8.pname = "Sugar";
-
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
-        products.add(p4);
-        products.add(p5);
-        products.add(p6);
-        products.add(p7);
-        products.add(p8);
-
-        return products;
+    /**
+     * Author: Calli Bicknese
+     * creates the PantryList for the pantry recyclerList
+     * eventually will populate from database information
+     */
+    public static void createPantryList(){
+        products = new ArrayList<>();
     }
 
-    public static ArrayList<Product> createShoppingList(){
-        ArrayList<Product> shoppingList = new ArrayList<>();
+    public static void updatePantryList(Product product){
+        if(products == null){
+            products = new ArrayList<>();
+            products.add(product);
+        }
+        products.add(product);
+    }
 
-        Product p1 = new Product();
-        p1.pname = "Lettuce";
-        Product p2 = new Product();
-        p2.pname = "Tomato";
-        Product p3 = new Product();
-        p3.pname = "Potato";
-        Product p4 = new Product();
-        p4.pname = "Milk";
-        Product p5 = new Product();
-        p5.pname = "Juice";
-        Product p6 = new Product();
-        p6.pname = "Eggs";
-        Product p7 = new Product();
-        p7.pname = "Flour";
-        Product p8 = new Product();
-        p8.pname = "Sugar";
+    /**
+     * Author: Calli Bicknese
+     * creates the shoppinglist
+     */
+    public static void createShoppingList(){
+        shoppingList = new ArrayList<>();
+    }
 
-        shoppingList.add(p1);
-        shoppingList.add(p2);
-        shoppingList.add(p3);
-        shoppingList.add(p4);
-        shoppingList.add(p5);
-        shoppingList.add(p6);
-        shoppingList.add(p7);
-        shoppingList.add(p8);
-
-        return shoppingList;
+    public static void updateShoppingList(Product product){
+        if(shoppingList == null){
+            shoppingList = new ArrayList<>();
+            shoppingList.add(product);
+        }
+        shoppingList.add(product);
     }
 }
 

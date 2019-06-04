@@ -1,10 +1,14 @@
 package com.example.grocerybuddy;
 
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +28,11 @@ public class ProductInformation extends Fragment {
         View view = inflater.inflate(R.layout.fragment_product_information, container, false);
 
         return view;
+    }
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
 }

@@ -56,6 +56,15 @@ public class IntroFragment extends Fragment {
             }
         });
 
+        Button button2 = view.findViewById(R.id.recipe_button);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.navigate(R.id.action_introFragment_to_recipeFragment);
+            }
+        });
+
     }
 
 }

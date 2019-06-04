@@ -5,8 +5,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,16 +26,26 @@ public class PantryProductsAdapter  extends RecyclerView.Adapter<PantryProductsA
     public class PantryViewHolder extends RecyclerView.ViewHolder{
         public TextView nameTV;
         public ImageView productIV;
+        private PantryRecyclerViewClickListener mListener;
 
         public PantryViewHolder(View productView){
             super(productView);
 
             nameTV = productView.findViewById(R.id.product_name);
             productIV = productView.findViewById(R.id.imageView2);
+
         }
     }
 
+    /**
+     * Author: Calli Bicknese
+     * Adapter for PantryRecyclerView
+     */
     private List<Product> products;
+    private Product recentlyDeleted;
+    private int recentlyDeletedItemPosition;
+    public GBDatabase pDb;
+
 
     //Constructor for the PantryProductsAdapter
     public PantryProductsAdapter(List<Product> prods){
@@ -55,7 +67,7 @@ public class PantryProductsAdapter  extends RecyclerView.Adapter<PantryProductsA
 
     //this method binds the data from the object to the viewholder
     @Override
-    public void onBindViewHolder(PantryProductsAdapter.PantryViewHolder pantryViewHolder, int mposition){
+    public void onBindViewHolder(final PantryProductsAdapter.PantryViewHolder pantryViewHolder, final int mposition){
         //gets the object based on the position in the array
         Product product = products.get(mposition);
 
@@ -63,15 +75,29 @@ public class PantryProductsAdapter  extends RecyclerView.Adapter<PantryProductsA
         nameTV.setText(product.pname);
 
         //trying to get the image to load from the BitMap field inside of Product object
-        ImageView productIV = pantryViewHolder.productIV;
-        Log.w(productIV.toString(), "HERE");
-        productIV.setImageBitmap(product.pImage);
+        //ImageView productIV = pantryViewHolder.productIV;
+        //Log.w(productIV.toString(), "HERE");
+        //productIV.setImageBitmap(product.pImage);
     }
 
     //this method returns the size of the productsList
     @Override
     public int getItemCount(){
-        return products.size();
+            return products.size();
     }
 
+
+    /*
+        This method is for the swipe to delete the item out of the shopping list
+     */
+    public void deleteItem(int position){
+        recentlyDeleted = products.get(position);
+        recentlyDeletedItemPosition = position;
+        products.remove(position);
+        notifyItemRemoved(position);
+    }
+
+
 }
+
+

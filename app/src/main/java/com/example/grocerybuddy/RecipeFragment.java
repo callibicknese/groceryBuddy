@@ -1,6 +1,7 @@
 package com.example.grocerybuddy;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -28,4 +29,8 @@ public class RecipeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_recipe, container, false);
     }
 
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
 }

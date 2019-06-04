@@ -19,8 +19,11 @@ import androidx.room.Room;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, PantryFragment.OnFragmentInteractionListener, ShoppingList.OnFragmentInteractionListener {
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, PantryFragment.OnFragmentInteractionListener,
+        ShoppingList.OnFragmentInteractionListener, ProductInformation.OnFragmentInteractionListener, RecipeFragment.OnFragmentInteractionListener{
 
     GBDatabase db;
     Button jsonBtn, panButt;
@@ -34,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         cameraPhoto = (ImageView) findViewById(R.id.photo_view);
+
+        createDatabase();
+        Product.createPantryList();
+        Product.createShoppingList();
+
     }
 
     // Creates the Database.
@@ -67,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.i("GroceryBuddy", "IMAGE IS IN!");
 
             // This doesn't work since the ImageView is null
+
             ImageView view = (ImageView) findViewById(R.id.photo_view);
             //view.setImageBitmap(imageBitmap);
         }

@@ -5,36 +5,53 @@
     android:id="@+id/IntroLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#134017"
+    android:background="@drawable/introbackground"
     tools:context=".IntroFragment">
 
     <ImageView
         android:id="@+id/intro_fragment_icon"
-        android:layout_width="320dp"
-        android:layout_height="217dp"
+        android:layout_width="323dp"
+        android:layout_height="185dp"
         android:layout_marginStart="-6dp"
-        android:layout_marginEnd="8dp"
         android:contentDescription="@string/appicon"
         android:layoutDirection="inherit"
-        android:src="@drawable/grocery_buddy_icon"
+        android:src="@drawable/grocerybudicon"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_wrapHeight="525"
         tools:layout_conversion_wrapWidth="425" />
 
+    <TextView
+        android:id="@+id/main_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/grocery_buddy"
+        android:textColor="@android:color/primary_text_light"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_fragment_icon" />
+
     <Button
         android:id="@+id/pantry_button"
         android:layout_width="126dp"
         android:layout_height="83dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
         android:text="@string/pantry_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intro_fragment_icon"
+        app:layout_constraintTop_toBottomOf="@+id/main_name"
         tools:layout_conversion_wrapHeight="218"
         tools:layout_conversion_wrapWidth="331"
         tools:text="Pantry" />
@@ -43,12 +60,24 @@
         android:id="@+id/shop_list_button"
         android:layout_width="126dp"
         android:layout_height="83dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
         android:text="@string/shopping_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.601"
+        app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toEndOf="@+id/pantry_button"
-        app:layout_constraintTop_toBottomOf="@+id/intro_fragment_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name" />
+
+    <Button
+        android:id="@+id/recipe_button"
+        android:layout_width="128dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/recipes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pantry_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

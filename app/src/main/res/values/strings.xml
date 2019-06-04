@@ -12,4 +12,8 @@
     <string name="stringAddProduct">Add Product</string>
     <string name="snack_bar_text">item removed</string>
     <string name="snack_bar_undo">undo</string>
+    <string name="add_item">Add Item</string>
+    <string name="info">Info</string>
+    <string name="grocery_buddy">Grocery Buddy</string>
+    <string name="recipes">Recipes</string>
 </resources>

@@ -1,8 +1,5 @@
 package com.example.grocerybuddy;
 
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,23 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
     Swipe to delete needed for the recyclerviews
  */
-public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
+public class SwipeToDeleteCallback_pantry extends ItemTouchHelper.SimpleCallback {
 
-    private ShopListAdapter shopListAdapter;
+    private PantryProductsAdapter pantryAdapter;
 
-    private Drawable icon;
-    private ColorDrawable background;
-
-    public SwipeToDeleteCallback(ShopListAdapter slAdapter){
+    public SwipeToDeleteCallback_pantry(PantryProductsAdapter ppAdapter){
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
-        shopListAdapter = slAdapter;
+        pantryAdapter = ppAdapter;
     }
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction){
         int position = viewHolder.getAdapterPosition();
-        shopListAdapter.deleteItem(position);
+        pantryAdapter.deleteItem(position);
     }
+
 
     /*
         Not Used
@@ -40,4 +35,3 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
         return false;
     }
 }
-
